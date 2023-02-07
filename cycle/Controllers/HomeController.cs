@@ -1,5 +1,6 @@
 ﻿using cycle.Data;
 using cycle.Models;
+using cycle.VievModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,9 +19,14 @@ namespace cycle.Controllers
 
         public IActionResult Index()
         {
-            
+            var prodacts = _context.Prodacts.OrderByDescending(x=>x.Id).ToList();
             var banner = _context.Banners.ToList();
-            return View(banner);
+            HomeVM homeVM = new HomeVM()
+            {
+                Banners = banner,
+                Prodacts =prodacts
+            };
+            return View(homeVM);
         }
 
         public IActionResult Privacy()
