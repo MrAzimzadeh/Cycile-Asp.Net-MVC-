@@ -30,6 +30,13 @@ namespace cycle.Controllers
             };
             return View(homeVM);
             }
+        
+            [HttpPost]
+        public IActionResult Contact(string userName , string userEmail)
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {
