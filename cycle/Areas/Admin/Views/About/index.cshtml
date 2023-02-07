@@ -1,0 +1,65 @@
+@model List<About>
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <a href="/admin/About/create">Create</a>
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#Id</th>
+                            <th>Photo</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>
+                                Parametr
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#Id</th>
+                            <th>Photo</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>
+                                Parametr
+                            </th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @* *@
+                        @foreach (var about in Model)
+                        {
+                            <tr>
+
+                                <th>@about.Id</th>
+                                <th>
+                                    <img src="@about.PhotoUrl" alt="" width="100" srcset="">
+                                </th>
+                                <th>
+                                    @about.Title
+                                </th>
+                                <th>@Html.Raw(about.content.Substring(0,250))</th>
+                                <th>
+                                    <a href="#" class="btn btn-danger"> Deteil </a>
+                                    <a href="#" class="btn btn-secondary"> Delete </a>
+                                    <a href="#" class="btn btn-info">Update</a>
+                                </th>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

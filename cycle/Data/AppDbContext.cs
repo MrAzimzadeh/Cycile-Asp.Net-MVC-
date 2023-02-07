@@ -10,6 +10,10 @@ namespace cycle.Data
 
         public DbSet<Banner> Banners{ get; set; }
         public DbSet<Prodact> Prodacts { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<Testomonia> Testomonias{ get; set; }
 
     }
 }

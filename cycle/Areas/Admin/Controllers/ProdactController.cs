@@ -38,7 +38,6 @@ namespace cycle.Areas.Admin.Controllers
 
         public IActionResult Create(string name , string content , Decimal price , IFormFile photo)
         {
-
             var path = "/uploads/" + Guid.NewGuid() + photo.FileName;
             using (var fileStream = new FileStream(_env.WebRootPath + path, FileMode.Create))
             {
