@@ -10,5 +10,6 @@ namespace cycle.VievModel
     {
         public List<Banner> Banners { get; set; }
         public List<Prodact> Prodacts { get; set; }
+        public About About { get; set; }
     }
 }

@@ -21,13 +21,15 @@ namespace cycle.Controllers
         {
             var prodacts = _context.Prodacts.OrderByDescending(x=>x.Id).ToList();
             var banner = _context.Banners.ToList();
+            var about = _context.Abouts.OrderByDescending(x=>x.Id).First();
             HomeVM homeVM = new HomeVM()
             {
                 Banners = banner,
-                Prodacts =prodacts
+                Prodacts =prodacts,
+                About = about
             };
             return View(homeVM);
-        }
+            }
 
         public IActionResult Privacy()
         {

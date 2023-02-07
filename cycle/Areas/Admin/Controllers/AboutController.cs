@@ -16,10 +16,11 @@ namespace cycle.Areas.Admin.Controllers
         private readonly ILogger<AboutController> _logger;
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public AboutController(ILogger<AboutController> logger, AppDbContext context)
+        public AboutController(ILogger<AboutController> logger, AppDbContext context, IWebHostEnvironment env)
         {
             _logger = logger;
             _context = context;
+            _env = env;
         }
         public IActionResult Index()
         {
