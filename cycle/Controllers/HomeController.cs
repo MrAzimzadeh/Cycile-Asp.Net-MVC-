@@ -19,22 +19,35 @@ namespace cycle.Controllers
 
         public IActionResult Index()
         {
-            var prodacts = _context.Prodacts.OrderByDescending(x=>x.Id).ToList();
+            var prodacts = _context.Prodacts.OrderByDescending(x => x.Id).ToList();
             var banner = _context.Banners.ToList();
-            var about = _context.Abouts.OrderByDescending(x=>x.Id).First();
+            var about = _context.Abouts.OrderByDescending(x => x.Id).First();
+            var testomonia = _context.Testomonias.OrderByDescending(x => x.Id).ToList();
             HomeVM homeVM = new HomeVM()
             {
                 Banners = banner,
-                Prodacts =prodacts,
-                About = about
+                Prodacts = prodacts,
+                About = about,
+                Testomonias = testomonia
             };
             return View(homeVM);
-            }
-        
-            [HttpPost]
-        public IActionResult Contact(string userName , string userEmail)
+        }
+
+        public IActionResult Comment()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Comment(string userName, string userEmail , string userPhone , string userMessage)
+        {
+            Comment comment  = new Comment();
+            comment.UserName = userName;
+            comment.UserEmail = userEmail;
+            comment.UserMessage = userMessage;
+            comment.UserPhone = userPhone;
+            _context.Comments.Add(comment);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
 

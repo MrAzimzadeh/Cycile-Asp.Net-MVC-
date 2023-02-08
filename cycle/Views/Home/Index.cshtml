@@ -161,26 +161,26 @@
    <div id="my_slider" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
          @* ? *@
-         <div class="carousel-item active">
-            <div class="container">
-               <div class="client_main">
-
-                  <h1 class="client_taital">Says Customers</h1>
-                  <div class="client_section_2">
-                     <div class="client_left">
-                        <div><img src="images/client-img.png" class="client_img"></div>
-                     </div>
-                     <div class="client_right">
-                        <div class="quote_icon"><img src="images/quote-icon.png"></div>
-                        <p class="client_text">It is a long established fact that a reader will be distracted by the
-                           readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                           it has a more-or-less normal distribution of letters</p>
-                        <h3 class="client_name">Channery</h3>
+         @for (int i = 0; i < Model.Testomonias.Count; i++)
+         {
+            <div class="carousel-item @(i==0 ? "active" : "")">
+               <div class="container">
+                  <div class="client_main">
+                     <h1 class="client_taital">Says Customers</h1>
+                     <div class="client_section_2">
+                        <div class="client_left">
+                           <div><img src="@Model.Testomonias[i].PhotoUrl" class="client_img"></div>
+                        </div>
+                        <div class="client_right">
+                           <div class="quote_icon"><img src="images/quote-icon.png"></div>
+                           <p class="client_text">@Model.Testomonias[i].content</p>
+                           <h3 class="client_name">@Model.Testomonias[i].name</h3>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
+         }
       </div>
       <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
          <i class="fa fa-angle-left"></i>
@@ -242,21 +242,24 @@
    <div class="container">
       <div class="contact_main">
          <h1 class="request_text">A Call Back</h1>
-         <form method="post">
+         <form method="post" asp-asp-controller="Home" asp-action="Comment">
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Name" name="UserName">
+               <input type="text" class="email-bt" placeholder="Name" name="userName">
             </div>
             <div class="form-group">
-               <input type="email" class="email-bt" placeholder="Email" name="UserEmail">
+               <input type="email" class="email-bt" placeholder="Email" name="userEmail">
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Phone Numbar" name="UserPhone">
+               <input type="text" class="email-bt" placeholder="Phone Numbar" name="userPhone">
             </div>
             <div class="form-group">
-               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="UserMessage"></textarea>
+               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="userMessage"></textarea>
+            </div>
+            <div class="send_btn">
+               <button type="submit" class=" btn btn-block btn-dark ">SEND</button>
             </div>
          </form>
-         <div class="send_btn"><a href="#">SEND</a></div>
+
       </div>
    </div>
 </div>
