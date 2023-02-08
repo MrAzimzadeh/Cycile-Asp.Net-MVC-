@@ -1,30 +1,31 @@
-﻿@model List<Banner>
-<a href="/Admin/Banner/create">Create</a>
-<table class="table table-dark"> 
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Image</th>
-            <th>#</th>
+﻿@model MessageVM
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>@item.Id</td>
-                <td>@item.Title</td>
-                <td>
-                    <img src="~/Uploads/@item.PhotoUrl" width="150">
-                </td>
-            <td>
-                <a href="#" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
-                <a href="#" class="btn btn-success">Deteil</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <a href="/Admin/Banner/create">Create</a>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>#</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Banners)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>
+                        <img src="~/Uploads/@item.PhotoUrl" width="150">
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-warning">Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="#" class="btn btn-success">Deteil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

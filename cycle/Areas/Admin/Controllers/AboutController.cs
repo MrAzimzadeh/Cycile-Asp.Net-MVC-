@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using cycle.Data;
 using cycle.Models;
+using cycle.VievModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace cycle.Areas.Admin.Controllers
@@ -25,11 +27,19 @@ namespace cycle.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var about = _context.Abouts.OrderByDescending(x => x.Id).ToList();
-            return View(about);
+            var comment = _context.Comments.OrderByDescending(x=>x.Id).ToList();    
+            MessageVM messageVm = new MessageVM()
+            {
+                Abouts = about,
+                Comments = comment
+            };
+
+            return View(messageVm);
         }
 
         public IActionResult Create()
         {
+
             return View();
         }
 
@@ -49,6 +59,7 @@ namespace cycle.Areas.Admin.Controllers
             about.Title = title;
             _context.Abouts.Add(about);
             _context.SaveChanges();
+            Index();
             return RedirectToAction(nameof(Index));
         }
 

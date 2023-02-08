@@ -1,0 +1,18 @@
+@model Prodact
+
+<div class="container align-items-center justify-content-center text-center ">
+    <div class="card mb-3 align-items-center justify-content-center " style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@Model.PhotoUrl" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Name :  <b>@Model.Name</b></h5>
+                    <p class="card-text"> <b>Description : </b> @Model.Content </p>
+                    <p class="card-text">Price : <small class="text-muted text-center">@Model.Price.</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

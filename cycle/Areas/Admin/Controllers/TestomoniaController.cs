@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using cycle.Data;
 using cycle.Models;
+using cycle.VievModel;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace cycle.Areas.Admin.Controllers
 {
@@ -26,8 +21,15 @@ namespace cycle.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            var comment = _context.Comments.OrderByDescending(x => x.Id).ToList();
+
             var testomonia = _context.Testomonias.OrderByDescending(x => x.Id).ToList();
-            return View(testomonia);
+            MessageVM messageVm = new MessageVM()
+            {
+                Testomonias = testomonia
+            ,Comments = comment
+            };
+            return View(messageVm);
         }
 
         public IActionResult Create()

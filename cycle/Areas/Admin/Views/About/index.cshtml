@@ -1,4 +1,6 @@
-@model List<About>
+@model MessageVM
+
+
 <div class="container-fluid">
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -36,7 +38,7 @@
                     </tfoot>
                     <tbody>
                         @* *@
-                        @foreach (var about in Model)
+                        @foreach (var about in Model.Abouts)
                         {
                             <tr>
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using cycle.Data;
+using cycle.VievModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -24,7 +25,11 @@ namespace cycle.Areas.Admin.Controllers
         public IActionResult Index()
         {
            var comments =  _context.Comments.OrderByDescending(x=>x.Id).ToList();
-            return View(comments);
+           MessageVM messageVm = new MessageVM()
+           {
+               Comments = comments
+           };
+            return View(messageVm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

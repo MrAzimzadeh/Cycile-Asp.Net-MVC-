@@ -12,5 +12,6 @@ namespace cycle.VievModel
         public List<Prodact> Prodacts { get; set; }
         public About About { get; set; }
         public List<Testomonia> Testomonias { get; set; }
+        public List<Comment> Comments{ get; set; }
     }
 }

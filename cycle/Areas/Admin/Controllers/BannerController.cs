@@ -2,6 +2,7 @@
 using cycle.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using cycle.VievModel;
 
 namespace cycle.Areas.Admin.Controllers
 
@@ -23,7 +24,15 @@ namespace cycle.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var banners = _context.Banners.ToList();
-            return View(banners);
+            var comment = _context.Comments.OrderByDescending(x => x.Id).ToList();
+
+            MessageVM messageVM = new MessageVM()
+            {
+                Banners = banners
+                ,Comments = comment
+            };
+
+            return View(messageVM);
         }
         public IActionResult Create()
         {

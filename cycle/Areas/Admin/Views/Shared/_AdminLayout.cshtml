@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -51,36 +50,42 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/dashboard/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/banner/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Banner</span></a>
+                    <span>Banner</span>
+                </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/admin/prodact/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Prodacts</span></a>
+                    <span>Prodacts</span>
+                </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/admin/About/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>About</span></a>
+                    <span>About</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/testomonia/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Testimonia</span></a>
+                    <span>Testimonia</span>
+                </a>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="/admin/comment/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Comment</span></a>
+                    <span>Comment</span>
+                </a>
             </li>
-            @*!  sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss *@
+            @*! sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss *@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -91,14 +96,12 @@
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
+
             <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
@@ -198,6 +201,7 @@
                             </div>
                         </li>
 
+
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
@@ -212,55 +216,20 @@
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="~/admin/img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
-
-
-
                                     <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        <div class="text-truncate"></div>
+                                        <div class="small text-gray-500">58m</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="~/admin/img/undraw_profile_2.svg" alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="~/admin/img/undraw_profile_3.svg" alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+
+                                <a class="dropdown-item text-center small text-gray-500"
+                                    href="/admin/comment/index">Read More Messages</a>
                             </div>
                         </li>
 
@@ -301,9 +270,9 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <!-- Topbar -->
                     <!-- Page Heading -->
                     @RenderBody()
 
@@ -312,7 +281,6 @@
 
             </div>
             <!-- End of Main Content -->
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -325,10 +293,8 @@
 
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -371,7 +337,7 @@
     <!-- Page level custom scripts -->
     <script src="~/admin/js/demo/datatables-demo.js"></script>
 
-      @RenderSection("Scripts" , false)
+    @RenderSection("Scripts" , false)
 
 </body>
 
