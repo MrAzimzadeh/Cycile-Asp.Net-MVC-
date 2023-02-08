@@ -1,0 +1,22 @@
+@model List<Comment>
+
+<div class="container">
+    @foreach (var comment in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                Comment Id : @comment.Id  / Name : <b> @comment.UserName</b>
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>Phone : @comment.UserPhone / Email : @comment.UserEmail</p>
+                    <hr>    
+                    <footer class="blockquote-footer">
+                         Message : <b> @comment.UserMessage</b>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+    }
+</div>
