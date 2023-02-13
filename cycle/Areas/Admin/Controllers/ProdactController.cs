@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using cycle.Data;
+using cycle.Helpers;
 using cycle.Models;
 using cycle.VievModel;
 using Microsoft.AspNetCore.Mvc;
@@ -91,6 +92,39 @@ namespace cycle.Areas.Admin.Controllers
             }
             _context.Prodacts.Remove(prodactDelete);
             _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Update(int Id)
+        {
+            var update = _context.Prodacts.FirstOrDefault(x => x.Id == Id);
+            if (update == null)
+            {
+                return NotFound();
+            }
+            return View(update);
+        }
+
+        [HttpPost]
+
+        public IActionResult Update(Prodact prodact, IFormFile photo)
+        {
+            var existingProdact = _context.Prodacts.Find(prodact.Id);
+            if (existingProdact == null)
+            {
+                return NotFound();
+            }
+
+            if (photo != null)
+            {
+                existingProdact.PhotoUrl = ImageHelper.UploadSinglePhoto(photo, _env);
+            }
+
+            existingProdact.Name = prodact.Name;
+            existingProdact.Price = prodact.Price;
+            existingProdact.Content = prodact.Content;
+
+            _context.Prodacts.Update(existingProdact);
+            _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
