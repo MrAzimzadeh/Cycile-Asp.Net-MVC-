@@ -64,10 +64,9 @@ namespace cycle.Areas.Admin.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult Deteil(int Id)
+        public IActionResult Deteil(int id)
         {
-            var deteil = _context.Prodacts.FirstOrDefault(x => x.Id == Id);
+            var deteil = _context.Prodacts.FirstOrDefault(x => x.Id == id);
             if (deteil == null)
             {
                 return NotFound();
@@ -103,9 +102,7 @@ namespace cycle.Areas.Admin.Controllers
             }
             return View(update);
         }
-
         [HttpPost]
-
         public IActionResult Update(Prodact prodact, IFormFile photo)
         {
             var existingProdact = _context.Prodacts.Find(prodact.Id);
@@ -113,16 +110,13 @@ namespace cycle.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             if (photo != null)
             {
                 existingProdact.PhotoUrl = ImageHelper.UploadSinglePhoto(photo, _env);
             }
-
             existingProdact.Name = prodact.Name;
             existingProdact.Price = prodact.Price;
             existingProdact.Content = prodact.Content;
-
             _context.Prodacts.Update(existingProdact);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));

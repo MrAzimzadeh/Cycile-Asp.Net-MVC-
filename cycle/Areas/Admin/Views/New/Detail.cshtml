@@ -1,0 +1,42 @@
+@model News
+
+<div id="main-content" class="blog-page">
+    <div class="container">
+        <div class="row clearfix">
+<a href="/admin/new/index" class="btn btn-primary w-100"> Back </a>
+            <div class="col-lg-8 col-md-12 left-box">
+                <div class="card single_post">
+                    <div class="body">
+                        <div class="img-post">
+                            <img class="d-block img-fluid w-100" src="@Model.PhotoUrl" alt="First slide">
+                        </div>
+                        <h3><b>@Model.Title</b></h3>
+                        <p>
+                            @Html.Raw(Model.Content)
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2>User </h2>
+                    </div>
+                    <div class="body">
+                        <ul class="comment-reply list-unstyled">
+                            <li class="row clearfix">
+                                <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail"
+                                        src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Awesome Image">
+                                </div>
+                                <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                    <h5 class="m-b-0">@Model.UserName</h5>
+                                    <ul class="list-inline">
+                                        <li><a>@Model.PublishDate</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
