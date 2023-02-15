@@ -1,0 +1,33 @@
+@model News
+
+<form method="post" enctype="multipart/form-data" asp-controller="New" asp-action="Update">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title">
+    </div>
+    <div class="form-group">
+        <label for="UserName">User</label>
+        <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.UserName">
+    </div>
+    <div class="form-group">
+        <label for="Content">Content</label>
+        <textarea name="Content" id="editor1" cols="30" rows="10">@Model.Content</textarea>
+    </div>
+    <div class="card mb-6">
+        <div class="card-body">
+            <div class="form-group">
+                <img class="img-fluid mb-4" src="@Model.PhotoUrl" />
+                <input type="file" class="form-control" name="photo" />
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+}
