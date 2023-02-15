@@ -30,10 +30,10 @@ namespace cycle.Areas.Admin.Controllers
             var news = _context.News.OrderByDescending(x => x.Id).ToList();
             return View(news);
         }
-        
+
         public IActionResult Error()
         {
-            
+
             return View();
         }
         public IActionResult Create()
@@ -56,12 +56,25 @@ namespace cycle.Areas.Admin.Controllers
         }
         public IActionResult Detail(int Id)
         {
-            var detail = _context.News.FirstOrDefault(x=>x.Id == Id);
+            var detail = _context.News.FirstOrDefault(x => x.Id == Id);
             if (detail == null)
             {
                 return RedirectToAction(nameof(Error));
             }
             return View(detail);
+        }
+        public IActionResult Delete(int Id)
+        {
+            var delete = _context.News.FirstOrDefault(x => x.Id == Id);
+            return View(delete);
+        }
+        [HttpPost]
+        public IActionResult Delete(News news)
+        {
+            var delete = _context.News.FirstOrDefault(x => x.Id == news.Id);
+            _context.News.Remove(delete);   
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
