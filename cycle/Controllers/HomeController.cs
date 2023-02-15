@@ -23,12 +23,15 @@ namespace cycle.Controllers
             var banner = _context.Banners.ToList();
             var about = _context.Abouts.OrderByDescending(x => x.Id).First();
             var testomonia = _context.Testomonias.OrderByDescending(x => x.Id).ToList();
+            var news = _context.News.OrderByDescending(x=>x.PublishDate).ToList();
+
             HomeVM homeVM = new HomeVM()
             {
                 Banners = banner,
                 Prodacts = prodacts,
                 About = about,
-                Testomonias = testomonia
+                Testomonias = testomonia,
+                News = news
             };
             return View(homeVM);
         }

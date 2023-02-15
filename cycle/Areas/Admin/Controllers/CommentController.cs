@@ -31,6 +31,11 @@ namespace cycle.Areas.Admin.Controllers
            };
             return View(messageVm);
         }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+                return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
